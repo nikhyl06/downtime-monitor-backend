@@ -1,5 +1,5 @@
 // corsOptions.js
-import allowedOrigins from "./allowedOrigins";
+const allowedOrigins = require("./allowedOrigins");
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -15,4 +15,4 @@ const corsOptions = {
   optionsSuccessStatus: 200, // Some legacy browsers choke on 204
 };
 
-export default corsOptions;
+module.exports = corsOptions;
