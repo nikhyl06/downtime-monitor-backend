@@ -1,5 +1,7 @@
+// allowedOrigins.js
 const allowedOrigins = [
-    "https://downtime-monitor-frontend.onrender.com",
+  "https://downtime-monitor-frontend.onrender.com",
+  "https://breakdown-monitor.vercel.app"
 ];
 
-module.exports = allowedOrigins;
+export default allowedOrigins;

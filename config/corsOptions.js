@@ -1,8 +1,18 @@
-const allowedOrigins = require('./allowedOrigins');
+// corsOptions.js
+import allowedOrigins from "./allowedOrigins";
 
 const corsOptions = {
-  origin: "https://downtime-monitor-frontend.onrender.com",
-  optionsSuccessStatus: 200,
+  origin: function (origin, callback) {
+    // Check if the incoming origin is in the allowedOrigins array
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // If it is, allow the request
+      callback(null, true);
+    } else {
+      // Otherwise, reject it
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
 };
 
-module.exports = corsOptions;
+export default corsOptions;
